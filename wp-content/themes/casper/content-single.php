@@ -65,6 +65,18 @@
 	    </section><!-- .entry-summary -->
 	<?php else : ?>
 		<section class="post-content">
+            <?php foreach(get_post_custom() as $key => $value): ?>
+            <?php if($key == "_edit_last" || $key == "_edit_lock") continue;?>
+                <div class="meta-content">
+                    <?php if(get_post_type() == "order"): ?>
+                        <h2 class="meta-content-head"><?=$key == "product_id" ? "Product" : "Client"?></h2>
+                        <p class="meta-content-body"><?=get_post_meta($value[0], "name")[0]?></p>
+                    <?php else: ?>
+                        <h2 class="meta-content-head"><?=$key?></h2>
+                        <p class="meta-content-body"><?=$value[0]?></p>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach;?>
 		    <?php the_content( __( '&hellip;&nbsp<span class="meta-nav">&rarr;</span>', 'casper' ) ); ?>
 		    <?php
 				wp_link_pages( array(
