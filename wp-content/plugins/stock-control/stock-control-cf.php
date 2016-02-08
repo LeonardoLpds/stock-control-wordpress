@@ -32,7 +32,7 @@ function product_meta_box_callback($post) {
                 <label for="name" class="meta-label-title">Name</label>
             </div>
             <div class="meta-field-content">
-                <input type="text" name="name" id="name" value="<?php if( !empty($product_stored_meta['name']) ) echo esc_attr($product_stored_meta['name'][0]); ?>" placeholder="Product name"/>
+                <input class="form-control" type="text" name="name" id="name" value="<?php if( !empty($product_stored_meta['name']) ) echo esc_attr($product_stored_meta['name'][0]); ?>" placeholder="Product name"/>
             </div>
         </div>
         <div class="meta-field-box">
@@ -40,7 +40,10 @@ function product_meta_box_callback($post) {
                 <label for="price" class="meta-label-title">Price</label>
             </div>
             <div class="meta-field-content">
-                <input type="number" min="0" step="0.01" name="price" id="price" value="<?php if( !empty($product_stored_meta['price']) ) echo esc_attr($product_stored_meta['price'][0]); ?>" placeholder="Product price"/>
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="number" step="0.01" min="0" class="form-control currency" name="price" id="price" value="<?php if( !empty($product_stored_meta['price']) ) echo esc_attr($product_stored_meta['price'][0]); ?>" placeholder="Product price"/>
+                </div>
             </div>
         </div>
         <div class="meta-field-box">
@@ -106,7 +109,7 @@ function client_meta_box_callback($post) {
                 <label for="name" class="meta-label-title">Name</label>
             </div>
             <div class="meta-field-content">
-                <input type="text" name="name" id="name" value="<?php if( !empty($client_stored_meta['name']) ) echo esc_attr($client_stored_meta['name'][0]); ?>" placeholder="Client name"/>
+                <input class="form-control" type="text" name="name" id="name" value="<?php if( !empty($client_stored_meta['name']) ) echo esc_attr($client_stored_meta['name'][0]); ?>" placeholder="Client name"/>
             </div>
         </div>
         <div class="meta-field-box">
@@ -114,7 +117,7 @@ function client_meta_box_callback($post) {
                 <label for="email" class="meta-label-title">E-Mail</label>
             </div>
             <div class="meta-field-content">
-                <input type="email" name="email" id="email" value="<?php if( !empty($client_stored_meta['email']) ) echo esc_attr($client_stored_meta['email'][0]); ?>" placeholder="Client E-Mail"/>
+                <input class="form-control" type="email" name="email" id="email" value="<?php if( !empty($client_stored_meta['email']) ) echo esc_attr($client_stored_meta['email'][0]); ?>" placeholder="Client E-Mail"/>
             </div>
         </div>
         <div class="meta-field-box">
@@ -122,7 +125,7 @@ function client_meta_box_callback($post) {
                 <label for="phone" class="meta-label-title">Phone</label>
             </div>
             <div class="meta-field-content">
-                <input type="text" name="phone" id="phone" value="<?php if( !empty($client_stored_meta['phone']) ) echo esc_attr($client_stored_meta['phone'][0]); ?>" placeholder="Client phone"/>
+                <input class="form-control" type="text" name="phone" id="phone" value="<?php if( !empty($client_stored_meta['phone']) ) echo esc_attr($client_stored_meta['phone'][0]); ?>" placeholder="Client phone"/>
             </div>
         </div>
     </div>
@@ -175,7 +178,7 @@ function order_meta_box_callback($post) {
                 <label for="product_id" class="meta-label-title">Product</label>
             </div>
             <div class="meta-field-content">
-                <select name="product_id" id="product_id">
+                <select class="form-control" name="product_id" id="product_id">
                     <option value="">--</option>
                     <?php
                     $products = get_posts(array('post_type' => 'product', 'post_status' => 'publish'));
@@ -193,7 +196,7 @@ function order_meta_box_callback($post) {
                 <label for="client_id" class="meta-label-title">Client</label>
             </div>
             <div class="meta-field-content">
-                <select name="client_id" id="client_id">
+                <select class="form-control" name="client_id" id="client_id">
                     <option value="">--</option>
                     <?php
                     $clients = get_posts(array('post_type' => 'client', 'post_status' => 'publish'));
