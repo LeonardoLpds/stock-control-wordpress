@@ -2,6 +2,7 @@
 
 add_action( 'init', 'create_post_type_product' );
 add_action( 'init', 'create_post_type_client' );
+add_action( 'init', 'create_post_type_order' );
 
 /**
 * Creating post type Product
@@ -70,6 +71,44 @@ function create_post_type_client() {
             'has_archive' => 'clients',
             'rewrite' => array(
                 'slug' => 'clients',
+                'with_front' => false,
+            ),
+            'menu_position' => 5,
+            'capability_type' => 'post',
+            'supports' => array('title')
+        )
+    );
+}
+
+/**
+* Creating post type Order
+*/
+function create_post_type_order() {
+    register_post_type( 'order',
+        array(
+            'labels' => array(
+                'name' => _x('Orders', 'post type general name'),
+                'singular_name' => _x('Order', 'post type singular name'),
+                'add_new' => _x('Add New', 'order'),
+                'add_new_item' => __('Add New Order'),
+                'edit_item' => __('Edit Order'),
+                'new_item' => __('New Order'),
+                'all_items' => __('All Orders'),
+                'view_item' => __('View Order'),
+                'search_items' => __('Search Orders'),
+                'not_found' =>  __('No Orders found'),
+                'not_found_in_trash' => __('No Orders found in Trash'),
+                'parent_item_colon' => '',
+                'menu_name' => 'Orders'
+            ),
+            'public' => true,
+            'publicly_queryable' => true,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'menu_icon' => 'dashicons-welcome-write-blog',
+            'has_archive' => 'orders',
+            'rewrite' => array(
+                'slug' => 'orders',
                 'with_front' => false,
             ),
             'menu_position' => 5,
