@@ -43,3 +43,6 @@ The template I used was created by [Lacy Morrow](https://github.com/lacymorrow) 
 
 #### Template Configuration
 For show the custom fields at a detail page (single post page) you'll need call the function get_post_custom() or get_post_meta() passing the post id and the custom field name, and print the return in content-single.php of your template. You can see this [here](https://github.com/LeonardoLpds/stock-control-wordpress/blob/master/wp-content/themes/casper/content-single.php)
+
+### known issue
+If you try access any page of Custom Post Type and recive a 404 error, you'll need click on Settings ➜ Permalink ➜ Save Changes.
