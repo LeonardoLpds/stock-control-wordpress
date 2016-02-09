@@ -25,6 +25,11 @@ after import my sql file, you have to change (if needed) the wp_option table. At
 ### Installing
 After you did the configurations above, you are able to proceed the WordPress default installation.
 
+####Admin
+For access the admin page use the following credentials:
+- __User__: Altran Brazil
+- __Pass__: altran
+
 ## The Plugin
 In this project I created a plugin for wordpress, if you going to plugins page you'll see a plugin called `Stock Control`
 
